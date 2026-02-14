@@ -45,6 +45,14 @@ This effectively simulates a sleep state:
 This approach minimizes power consumption and prevents possible screen burn‑in while avoiding the kernel lockup issue.  
 **Please do not press the power button to try to turn off the screen** – use the touchscreen to wake the device after it dims.
 
+## Known Issues
+
+- **Data decryption (FBE) may fail**: Due to compatibility issues with Qualcomm's FBE implementation and the stock kernel, TWRP may not be able to decrypt the `/data` partition on some devices or after certain updates. You may encounter a boot loop or hang at the TWRP splash screen when attempting to decrypt. If this happens, you can try:
+  - Formatting data (this will erase all user data, so backup first).
+  - Using the "Advanced" -> "Terminal" and manually entering the decryption key if prompted.
+  - Flashing a different kernel or using a version of TWRP built with alternative decryption methods.
+  This issue is under investigation and may be fixed in future releases.
+
 ## Features
 
 - Based on TWRP 3.7.0 (Android 10/11 compatible)
@@ -77,14 +85,12 @@ The output image will be located at `out/target/product/PDVM00/recovery.img`.
 ## Credits
 
 - @cuoxianxu & @wudilsr
-- The Android Open Source Project
-- All testers and contributors
+- Thanks to the Android Open Source Project
+- Thanks to All testers and contributors
 
 ## Disclaimer
 
 - This software is provided as-is, without any warranty. Use at your own risk.
 - Modifying your device may void its warranty and can cause irreversible damage.
 - Always make a backup of your important data before flashing.
-
 ```
-
