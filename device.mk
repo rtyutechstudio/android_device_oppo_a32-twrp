@@ -81,9 +81,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_VENDOR_KERNEL_HEADERS := $(LOCAL_PATH)/kernel-headers
 
-PRODUCT_EXTRA_RECOVERY_KEYS += \
-    $(LOCAL_PATH)/recovery/local_OTA \
-    $(LOCAL_PATH)/recovery/special_OTA
+
 
 
 # OTA certs
