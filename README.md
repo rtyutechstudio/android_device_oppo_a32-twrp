@@ -76,8 +76,7 @@ The output image will be located at `out/target/product/PDVM00/recovery.img`.
 
 ## Credits
 
-- TWRP team
-- SebaUbuntu's TWRP device tree generator
+- @cuoxianxu & @wudilsr
 - The Android Open Source Project
 - All testers and contributors
 
