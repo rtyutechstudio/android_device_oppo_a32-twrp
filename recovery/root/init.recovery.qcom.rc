@@ -39,14 +39,7 @@ on fs
     # Symlink bootdevice
     wait /dev/block/platform/${ro.boot.boot_devices}
     symlink /dev/block/platform/${ro.boot.boot_devices} /dev/block/bootdevice
-
-
-service vendor.qti.vibrator /system/bin/vendor.qti.hardware.vibrator.service
-    user root
-    group root
-    disabled
-    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
-    seclabel u:r:recovery:s0
+    #start hal_cryptoeng_oppo
 
 on boot
     start vendor.qti.vibrator
@@ -54,3 +47,33 @@ on boot
 
 on init
     setprop prepdecrypt.loglevel 2
+
+on property:twrp.modules.loaded=true
+    # Mount persist
+    mkdir /mnt/vendor/persist
+    mount ext4 /dev/block/bootdevice/by-name/persist /mnt/vendor/persist ro
+    # Mount firmware
+    mkdir /firmware
+    mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware ro
+    # Load ADSP firmware for PMIC
+    wait /sys/kernel/boot_adsp/boot
+    write /sys/kernel/boot_adsp/boot 1
+    wait /sys/class/power_supply/battery
+    umount /firmware
+
+on property:twrp.all.users.decrypted=true
+    umount /mnt/vendor/persist
+
+service hal_cryptoeng_oppo /system/bin/hw/vendor.oplus.hardware.cryptoeng@1.0-service
+    class late_start
+    user system
+    group system input sdcard_rw sdcard_r
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
+    seclabel u:r:recovery:s0
+
+service vendor.qti.vibrator /system/bin/vendor.qti.hardware.vibrator.service
+    user root
+    group root
+    disabled
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
+    seclabel u:r:recovery:s0

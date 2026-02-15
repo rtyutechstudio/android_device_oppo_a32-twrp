@@ -64,7 +64,7 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # HIDLs for blobs
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.1.recovery \
+    android.hardware.keymaster@4.0.recovery \
     android.hardware.gatekeeper@1.0.recovery
 
 # tzdata
@@ -77,14 +77,13 @@ PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.build.date.utc
 
 PRODUCT_PACKAGES += \
+    android.hardware.boot@1.1-service \
+    android.hardware.boot@1.1-impl-qti \
     android.hardware.boot@1.1-impl-qti.recovery
 
 PRODUCT_VENDOR_KERNEL_HEADERS := $(LOCAL_PATH)/kernel-headers
 
-
-
-
 # OTA certs
 PRODUCT_EXTRA_RECOVERY_KEYS += \
-    $(LOCAL_PATH)/recovery/local_OTA \
-    $(LOCAL_PATH)/recovery/special_OTA
+    $(LOCAL_PATH)/security/local_OTA \
+    $(LOCAL_PATH)/security/special_OTA
