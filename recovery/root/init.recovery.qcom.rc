@@ -51,6 +51,7 @@ on init
 on property:twrp.modules.loaded=true
     # Mount persist
     mkdir /mnt/vendor/persist
+    mkdir /system_root
     mount ext4 /dev/block/bootdevice/by-name/persist /mnt/vendor/persist ro
     # Mount firmware
     mkdir /firmware
@@ -77,3 +78,13 @@ service vendor.qti.vibrator /system/bin/vendor.qti.hardware.vibrator.service
     disabled
     setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
     seclabel u:r:recovery:s0
+
+# battery info (repaired by @cuoxianxu)
+service health-hal-2-0 /system/bin/android.hardware.health@2.1-service
+    class hal
+    user root
+    group root
+    capabilities WAKE_ALARM
+    file /dev/kmsg w
+    seclabel u:r:recovery:s0
+    interface android.hardware.health@2.0::IHealth default

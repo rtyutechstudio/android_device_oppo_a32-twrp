@@ -14,4 +14,15 @@
        </interface>
        <fqname>@4.0::IKeymasterDevice/default</fqname>
     </hal>
+    <!-- repaired health HAL,supports 2.0 and 2.1(@cuoxianxu) -->
+    <hal format="hidl">
+        <name>android.hardware.health</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IHealth</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.0::IHealth/default</fqname>
+    </hal>
 </manifest>
