@@ -14,28 +14,11 @@
 # limitations under the License.
 #
 LOCAL_PATH := device/oppo/PDVM00
-
-# Enable virtual A/B OTA
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
-
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
 # A/B support
-AB_OTA_UPDATER := true
-
-# A/B updater updatable partitions list. Keep in sync with the partition list
-# with "_a" and "_b" variants in the device. Note that the vendor can add more
-# more partitions to this list for the bootloader and radio.
-AB_OTA_PARTITIONS += \
-    boot \
-    dtbo \
-    product \
-    recovery \
-    system \
-    vbmeta \
-    vbmeta_system \
-    vendor
+AB_OTA_UPDATER := false
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
@@ -75,6 +58,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.bootimage.build.date.utc \
     ro.build.date.utc
+
+# Boot
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-service \
+    android.hardware.boot@1.0-service.rc
     
 # Fastbootd
 PRODUCT_PACKAGES += \
