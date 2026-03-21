@@ -1,7 +1,7 @@
 ```markdown
-# TWRP for Oppo A32
+# TWRP for Oppo A32 / Oppo A53
 
-This is a custom TWRP (Team Win Recovery Project) device tree for the Oppo A32 (codenamed *PDVM00* / *OP4E35*). It provides a fully functional recovery environment with support for dynamic partitions, FBE decryption, and more.
+This is a custom TWRP (Team Win Recovery Project) device tree for the Oppo A32 / Oppo A53 (codenamed *PDVM00* / *OP4E35* / *CPH2127* / *OP4EFDL1 *). It provides a fully functional recovery environment with support  for dynamic partitions and more,but without FBE decryption.
 
 ## Device Specifications
 
@@ -11,7 +11,7 @@ This is a custom TWRP (Team Win Recovery Project) device tree for the Oppo A32 (
 | CPU                     | Octa-core (4x1.8 GHz Kryo 240 & 4x1.6 GHz Kryo 240)               |
 | GPU                     | Adreno 610                                                        |
 | Memory                  | 64GB 4GB RAM, 128GB 4GB RAM, 128GB 8GB RAM                        |
-| Shipped Android Version | 10.0 (ColorOS 7.2)                                                |
+| Shipped Android Version | 11.0 (ColorOS 11)                                                 |
 | Storage                 | UFS 2.1                                                           |
 | SIM                     | Dual SIM (Nano-SIM, dual stand-by)                                |
 | MicroSD                 | microSDXC (dedicated slot)                                        |
@@ -28,7 +28,7 @@ This is a custom TWRP (Team Win Recovery Project) device tree for the Oppo A32 (
 | WLAN                    | Wi-Fi 802.11 a/b/g/n/ac, dual-band, Wi-Fi Direct                  |
 | Bluetooth               | 5.0, A2DP, LE, aptX HD                                            |
 | NFC                     | No                                                                |
-| Models                  | PDVM00, OP4E35                                                    |
+| Models                  | PDVM00, OP4E35 / CPH2127 , OP4EFDL1                               |
 
 ## Important Note About Screen Lock / Sleep
 
