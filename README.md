@@ -83,7 +83,6 @@ The output image will be located at `out/target/product/PDVM00/recovery.img`.
 
 - @rtyutechstudio & @wudilsr-Opensource
 - Thanks to Teamwin
-- 
 
 ## Disclaimer
 
