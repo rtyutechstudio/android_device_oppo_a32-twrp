@@ -1,9 +1,7 @@
 ```markdown
 # TWRP for Oppo A32 / Oppo A53
 
-This is a custom TWRP (Team Win Recovery Project) device tree for the Oppo A32 / Oppo A53 (codenamed *PDVM00* / *OP4E35* / *CPH2127* / *OP4EFDL1 *). It provides a fully functional recovery environment with support  for dynamic partitions and more,but without FBE decryption.
-
-## Device Specifications
+This is a custom TWRP (Team Win Recovery Project) device tree for the Oppo A32 / Oppo A53 (codenamed *PDVM00* / *OP4E35* / *CPH2127* / *OP4EFDL1 *).
 
 | Feature                 | Specification                                                     |
 | :---------------------- | :-----------------------------------------------------------------|
@@ -47,24 +45,23 @@ This approach minimizes power consumption and prevents possible screen burn‑in
 
 ## Known Issues
 
-- **Data decryption (FBE) may fail**: Due to compatibility issues with Qualcomm's FBE implementation and the stock kernel, TWRP may not be able to decrypt the `/data` partition on some devices or after certain updates. You may encounter a boot loop or hang at the TWRP splash screen when attempting to decrypt. If this happens, you can try:
+- **Data decryption (FBE) partially implemented but not fully stable**: Due to compatibility issues with Qualcomm's FBE implementation and the stock kernel, TWRP may not be able to decrypt the `/data` partition on some devices or after certain updates.  If this happens, you can try:
   - Formatting data (this will erase all user data, so backup first).
-  - Using the "Advanced" -> "Terminal" and manually entering the decryption key if prompted.
   - Flashing a different kernel or using a version of TWRP built with alternative decryption methods.
   This issue is under investigation and may be fixed in future releases.
 
 ## Features
 
-- Based on TWRP 3.7.0 (Android 10/11 compatible)
-- Dynamic partitions support (super)
-- File‑Based Encryption (FBE) decryption
-- MTP, ADB, and fastbootd support
-- Built‑in `resetprop` and `libresetprop`
-- NTFS/exFAT support
-- EDL mode access
-- Vibrator haptics (AIDL)
-- Full logcat support
-- Chinese language included (default)
+- Based on TWRP 3.7.x (Android 11/12 compatible)
+- Bootable and stable TWRP environment
+- Dynamic partition support
+- MTP support
+- ADB (sideload, shell)
+- Touch fully working
+- Backup / Restore
+- Sideloadly flashing ZIP / IMG
+## Device Specifications
+
 
 ## Compile
 
@@ -84,9 +81,9 @@ The output image will be located at `out/target/product/PDVM00/recovery.img`.
 
 ## Credits
 
-- @cuoxianxu & @wudilsr
-- Thanks to the Android Open Source Project
-- Thanks to All testers and contributors
+- @rtyutechstudio & @wudilsr-Opensource
+- Thanks to Teamwin
+- 
 
 ## Disclaimer
 
